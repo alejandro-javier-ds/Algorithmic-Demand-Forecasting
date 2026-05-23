@@ -9,7 +9,7 @@
 ![Streamlit](https://img.shields.io/badge/Streamlit-Dashboard_UI-FF4B4B.svg?style=for-the-badge&logo=streamlit&logoColor=white)
 
 ## **1. EXECUTIVE SUMMARY & BUSINESS CONTEXT**
-In volatile retail and manufacturing environments, accurate demand planning is the cornerstone of operational efficiency. Relying on heuristic-based or manual forecasting methods often leads to inventory stockouts or costly overstock scenarios. "Silent demand drift"—characterized by failing to account for cyclicality, temporal trends, or historical consumption patterns—corrupts supply chain decision-making processes.
+In volatile retail and manufacturing environments, accurate demand planning is the cornerstone of operational efficiency. Relying on heuristic-based or manual forecasting methods often leads to inventory stockouts or costly overstock scenarios. "Silent demand drift" characterized by failing to account for cyclicality, temporal trends, or historical consumption patterns corrupts supply chain decision-making processes.
 
 This project implements a robust, production-ready End-to-End (E2E) Machine Learning pipeline designed to synthesize historical sales data, generate intelligent forecasts, and visualize operational performance. Acting as a predictive engine for demand planning, the system shifts from reactive inventory management to proactive, data-driven optimization, ensuring highly accurate procurement and distribution strategies.
 
