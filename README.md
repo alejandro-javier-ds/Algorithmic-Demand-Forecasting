@@ -20,7 +20,7 @@ The implementation of this architecture replaces static, manual forecasting work
 
 * **Operational Decoupling:** The architecture separates the heavy computational modeling (Python/Scikit-Learn) from the visual presentation layer (Streamlit) via a SQL-driven persistence layer. This ensures that the analytical dashboard is always performant and decoupled from training overhead.
 
-* **Traceability & Auditing:**Provides clear, historical performance audits, allowing supply chain managers to compare "Actual Sales" vs. "Model Forecast" to identify areas where the model requires re-training or hyperparameter optimization.
+* **Traceability & Auditing:** Provides clear, historical performance audits, allowing supply chain managers to compare "Actual Sales" vs. "Model Forecast" to identify areas where the model requires re-training or hyperparameter optimization.
 
 
 ## **3. END-TO-END PIPELINE ARCHITECTURE**
@@ -52,7 +52,7 @@ graph TD
     class FE,RF,DG engine;
     class ST UI;
 ```
-##### 3.1. Architecture Phase Breakdown
+#### 3.1. Architecture Phase Breakdown
 
 1. **Ingestion & Data Synthesis:** A localized data generator simulates real-world business scenarios, incorporating trend, seasonal peaks (weekends/holidays), and controlled noise.
 
@@ -63,7 +63,7 @@ graph TD
 4. **Presentation Layer:** An interactive Streamlit web application that provides real-time model audit and performance tracking.
 
 ## **4. CORE ENGINEERING PRINCIPLES & OPTIMIZATIONS**
-##### **4.1. Advanced Time-Series Feature Engineering**
+#### **4.1. Advanced Time-Series Feature Engineering**
 Standard linear regression or simple mean models fail to capture the complex interdependencies of retail data. This pipeline implements a robust feature engineering stack:
 
 * **Temporal Re-engineering:** The system does not treat date/time as a string. It expands date components into granular features (Month, Day_Of_Week, Is_Weekend) to allow the model to learn specific calendrical behaviors.
@@ -72,10 +72,10 @@ Standard linear regression or simple mean models fail to capture the complex int
 
 * **Rolling Window Statistics:**  The 15-day rolling mean acts as a "smoothing operator," allowing the model to distinguish between genuine volume changes and daily stochastic noise.
 
-##### **4.2. Model Selection: Random Forest Regressor**
+#### **4.2. Model Selection: Random Forest Regressor**
 The Random Forest ensemble is utilized for its resilience against overfitting and its capacity to handle non-linear relationships without requiring extensive data scaling (normalization). By aggregating multiple decision trees, the model effectively minimizes the variance of individual predictions, leading to highly stable forecasts.
 
-##### **4.3. Persistence & Decoupling Strategy**
+#### **4.3. Persistence & Decoupling Strategy**
 By using the SQL database as the "Single Source of Truth" and the communication bridge between scripts, we eliminate the need for costly runtime training. The dashboard is "Read-Only," meaning it can serve hundreds of requests simultaneously without consuming memory for model training or data processing.
 
 ## **5. DETAILED DATA QUALITY RULES ENGINE**
@@ -109,7 +109,7 @@ While current architecture is localized, the pipeline is structurally prepared f
 
 ## **8. DEPLOYMENT, SETUP, AND REPRODUCTION GUIDE**
 
-##### **Phase 1: Environment Provisioning**
+#### **Phase 1: Environment Provisioning**
 
 1. Initialize the project directory.
 
@@ -125,13 +125,13 @@ source venv/bin/activate # Unix
 pip install pandas numpy scikit-learn pyodbc streamlit matplotlib seaborn
 ```
 
-##### **Phase 2: Database Configuration**
+#### **Phase 2: Database Configuration**
 
 1. Configure your SQL Server connection details in `config.py.`
 
 2. Ensure the target database exists and tables (`Demand_Forecast, Demand_Predictions`) are created according to the schema.
 
-##### **Phase 3: Pipeline Execution**
+#### **Phase 3: Pipeline Execution**
 
 1. **Initialize Data:** Generate synthetic demand records.
 ```bash
